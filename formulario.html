@@ -6,6 +6,10 @@
 </head>
 <body>
 
+    <header>
+        <h1>Sistema de Chamada Escolar</h1>
+    </header>
+
     <nav>
         <a href="index.html">Início</a>
         <a href="pagina2.html">Funcionalidades</a>
@@ -13,64 +17,93 @@
         <a href="formulario.html">Cadastro</a>
     </nav>
 
-    <h1>Cadastro de Aluno</h1>
+    <main>
+        <section>
+            <h2>Cadastro de Aluno</h2>
 
-    <form>
+            <form>
 
-        <!-- Nome -->
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome_aluno" required>
-        <br><br>
+                <!-- Nome -->
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome_aluno" required
+                    oninvalid="this.setCustomValidity('Digite seu nome')"
+                    oninput="this.setCustomValidity('')">
+                <br><br>
 
-        <!-- Email -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email_aluno" required>
-        <br><br>
+                <!-- Email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email_aluno" required
+                    oninvalid="this.setCustomValidity('Digite um email válido')"
+                    oninput="this.setCustomValidity('')">
+                <br><br>
 
-       <!-- Senha -->
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha_aluno" required>
-        <br><br>
-        
-        <!-- Idade -->
-        <label for="idade">Idade:</label>
-        <input type="number" id="idade" name="idade_aluno">
-        <br><br>
+                <!-- Idade -->
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade_aluno" min="18" max="60" required
+                    oninvalid="this.setCustomValidity('Idade deve ser entre 18 e 60')"
+                    oninput="this.setCustomValidity('')">
+                <br><br>
 
-        <!-- Select -->
-        <label for="turma">Turma:</label>
-        <select id="turma" name="turma_aluno">
-            <option value="6ano">6º Ano</option>
-            <option value="7ano">7º Ano</option>
-            <option value="medio">Ensino Médio</option>
-        </select>
-        <br><br>
+                <!-- Senha -->
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha_aluno" minlength="6" required
+                    oninvalid="this.setCustomValidity('A senha deve ter no mínimo 6 caracteres')"
+                    oninput="this.setCustomValidity('')">
+                <br><br>
 
-        <!-- Radio -->
-        <p>Turno:</p>
-        <input type="radio" id="manha" name="turno" value="manha">
-        <label for="manha">Manhã</label>
+                <!-- CEP -->
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep_aluno" pattern="[0-9]{5}-[0-9]{3}" required
+                    placeholder="00000-000"
+                    oninvalid="this.setCustomValidity('Digite um CEP válido no formato 00000-000')"
+                    oninput="this.setCustomValidity('')">
+                <br><br>
 
-        <input type="radio" id="tarde" name="turno" value="tarde">
-        <label for="tarde">Tarde</label>
-        <br><br>
+                <!-- Telefone -->
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone_aluno" placeholder="(00) 00000-0000">
+                <br><br>
 
-        <!-- Checkbox -->
-        <p>Interesses:</p>
-        <input type="checkbox" name="interesses" value="esportes"> Esportes
-        <input type="checkbox" name="interesses" value="tecnologia"> Tecnologia
-        <input type="checkbox" name="interesses" value="arte"> Arte
-        <br><br>
+                <!-- Select -->
+                <label for="turma">Turma:</label>
+                <select id="turma" name="turma_aluno">
+                    <option value="6ano">6º Ano</option>
+                    <option value="7ano">7º Ano</option>
+                    <option value="medio">Ensino Médio</option>
+                </select>
+                <br><br>
 
-        <!-- Textarea -->
-        <label for="observacoes">Observações:</label><br>
-        <textarea id="observacoes" name="observacoes_aluno" rows="4" cols="30"></textarea>
-        <br><br>
+                <!-- Radio -->
+                <p>Turno:</p>
+                <input type="radio" id="manha" name="turno" value="manha">
+                <label for="manha">Manhã</label>
 
-        <!-- Botão de envio -->
-        <input type="submit" value="Cadastrar">
+                <input type="radio" id="tarde" name="turno" value="tarde">
+                <label for="tarde">Tarde</label>
+                <br><br>
 
-    </form>
+                <!-- Checkbox -->
+                <p>Interesses:</p>
+                <input type="checkbox" name="interesses[]" value="esportes"> Esportes
+                <input type="checkbox" name="interesses[]" value="tecnologia"> Tecnologia
+                <input type="checkbox" name="interesses[]" value="arte"> Arte
+                <br><br>
+
+                <!-- Textarea -->
+                <label for="observacoes">Observações:</label><br>
+                <textarea id="observacoes" name="observacoes_aluno"></textarea>
+                <br><br>
+
+                <!-- Botão -->
+                <input type="submit" value="Cadastrar">
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Sistema de Chamada Escolar</p>
+    </footer>
 
 </body>
 </html>
